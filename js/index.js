@@ -11,6 +11,10 @@ logo.addEventListener('mouseenter', function (event) {
 logo.addEventListener('mouseleave', function (event) {
   event.target.style.color = '#212529';
 });
+logo.addEventListener('click', function (event) {
+  TweenMax.to(".logo-heading", 2, { x: 75, ease: Elastic.easeOut.config(2, 0.2) });
+});
+
 
 const introImg = document.querySelector('.intro img');
 introImg.addEventListener('wheel', function (event) {
@@ -60,8 +64,16 @@ anchorTag.forEach(function (item) {
   })
 });
 
+const destBtn = document.querySelectorAll('.destination .btn');
+destBtn.forEach(function (item) {
+  item.addEventListener('click', function (event) {
+    TweenMax.to(".btn", 2, { rotation: 360 });
+  })
+})
+
 
 // // const window = document.querySelector('window');
 // window.addEventListener('resize', function (event) {
 //   event.target.style.backgroundColor = 'lightblue';
 // });
+// x: 400, ease: Bounce.easeOut 

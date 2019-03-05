@@ -1,8 +1,7 @@
 // Your code goes here
-const container = document.querySelector('.container');
-container.addEventListener('dblclick', function (event) {
-  console.log(event);
-  event.target.style.color = 'red';
+const container = document.querySelectorAll('.container');
+container[1].addEventListener('dblclick', function (event) {
+  event.currentTarget.style.color = 'red';
 });
 
 const logo = document.querySelector('.logo-heading');
@@ -32,7 +31,6 @@ imgHeader.addEventListener('mouseleave', function (event) {
 
 const destinationContent = document.querySelectorAll('.destination p');
 destinationContent[0].addEventListener('copy', function (event) {
-  console.log(event);
   event.target.style.color = 'magenta';
 });
 
@@ -43,9 +41,24 @@ contentImg[0].addEventListener('drag', function (event) {
 contentImg[0].addEventListener('dragend', function (event) {
   event.target.style.opacity = '1';
 });
+contentImg[1].addEventListener('mousedown', function (event) {
+  event.target.style.visibility = 'hidden';
+});
+contentImg[1].addEventListener('mouseup', function (event) {
+  event.target.style.visibility = 'visible';
+});
 
+const destHeader = document.querySelectorAll('.destination h4');
+destHeader[1].addEventListener('mousemove', function (event) {
+  event.target.textContent = "You'll love it!";
+});
 
-
+const anchorTag = document.querySelectorAll('a');
+anchorTag.forEach(function (item) {
+  item.addEventListener('click', function (event) {
+    event.preventDefault();
+  })
+});
 
 
 // // const window = document.querySelector('window');
